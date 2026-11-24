@@ -182,6 +182,7 @@ img { display: block; max-width: 100%; height: auto; }
 .mode a {
   flex: 1;
   text-align: center;
+  white-space: nowrap;
   padding: 0.5rem 1.2rem;
   border-radius: 99px;
   font-family: var(--font-display);
@@ -191,7 +192,7 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .mode a:hover { background: rgb(250 251 248 / 0.12); }
 .mode a[aria-current="page"] { background: var(--yellow); color: var(--ink); }
-@media (min-width: 56em) {
+@media (min-width: 64em) {
   .mode { order: 0; flex-basis: auto; margin: 0 auto 0 clamp(1rem, 3vw, 2.5rem); }
 }
 
@@ -238,8 +239,8 @@ html:not(.js) .nav-toggle { display: none; }
 html:not(.js) .site-header__inner { flex-wrap: wrap; padding-block: 0.75rem; }
 html:not(.js) .site-nav { display: block; width: 100%; }
 
-/* 56em, not 48em: the header also has to fit the Events / Delivered switch. */
-@media (min-width: 56em) {
+/* 64em, not 48em: the header has to fit the switch plus three links and a button. */
+@media (min-width: 64em) {
   .nav-toggle { display: none; }
   .site-nav,
   .site-nav.is-open,
@@ -305,14 +306,17 @@ html:not(.js) .site-nav { display: block; width: 100%; }
 @media (min-width: 50em) { .doors { grid-template-columns: 1fr 1fr; } }
 .hero + .section { padding-top: calc(var(--section) * 2); }
 
+/* Same panels used mid-page (bus.html): no overlap, no photo. */
+.doors--flat { margin: 0; }
+.doors--flat h3 { display: flex; align-items: center; gap: 0.6rem; }
+
 .door {
   display: flex;
   flex-direction: column;
   background: #fff;
   color: var(--ink);
-  border: none;
-  box-shadow: 0 4px 6px rgba(14, 58, 54, 0.1);
-  border-radius: 10px;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius);
   overflow: hidden;
 }
 .door .photo { border-radius: 0; aspect-ratio: 16 / 9; }
@@ -482,6 +486,43 @@ html:not(.js) .site-nav { display: block; width: 100%; }
 .quotes p { font-size: var(--step-1); line-height: 1.4; font-style: italic; margin-bottom: 0.75rem; }
 .quotes footer { font-family: var(--font-display); font-weight: 600; font-size: var(--step--1); }
 
+/* The bus: yellow band used for the home-page feature and the bus CTA. */
+.section--bus { background: var(--yellow); color: var(--ink); }
+.section.section--bus .btn { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.section.section--bus .btn:hover { background: transparent; color: var(--ink); }
+.section--bus .photo { background: var(--paper); }
+
+/* bus.html hero: the side of the bus, with photo slots as its windows. */
+.page-head--bus { padding-bottom: 0; }
+.page-head--bus > .wrap { display: flow-root; }
+.page-head--bus .lede { margin-bottom: 1.75rem; }
+.bus-windows {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.4rem, 1.5vw, 1.1rem);
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  padding: clamp(0.6rem, 2vw, 1.5rem);
+  padding-bottom: clamp(2.25rem, 6vw, 4rem);
+  background: var(--yellow);
+  border-radius: clamp(0.9rem, 2.5vw, 1.75rem) clamp(0.9rem, 2.5vw, 1.75rem) 0 0;
+}
+.bus-windows::after {            /* the two black rails along the side */
+  content: "";
+  position: absolute;
+  inset: auto 0 clamp(0.6rem, 1.6vw, 1.1rem) 0;
+  height: clamp(3px, 0.5vw, 5px);
+  background: var(--ink);
+  box-shadow: 0 calc(clamp(3px, 0.5vw, 5px) * -2.5) 0 var(--ink);
+}
+.bus-windows .photo {
+  aspect-ratio: 1;
+  background: var(--glass);
+  border: clamp(2px, 0.4vw, 4px) solid var(--ink);
+  border-radius: clamp(0.5rem, 1.6vw, 1.1rem) clamp(0.5rem, 1.6vw, 1.1rem) 0.25rem 0.25rem;
+}
+.bus-windows .photo span { padding: 0.25rem; }
+
 /* 9. Menus ---------------------------------------------------------------- */
 .tabs {
   display: flex;
@@ -560,7 +601,7 @@ html:not(.js) .tabs { display: none; }          /* without JS, every menu just s
   padding: 0;
 }
 .choice__options { display: grid; gap: 0.75rem; }
-@media (min-width: 36em) { .choice__options { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 44em) { .choice__options { grid-template-columns: repeat(3, 1fr); } }
 .choice label {
   display: flex;
   align-items: center;
