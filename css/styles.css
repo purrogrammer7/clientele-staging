@@ -1,8 +1,8 @@
 /* ==========================================================================
    Bicoastal Bus — starter stylesheet
    Version 2: Events / Delivered structure
-   1. Tokens   2. Base   3. Layout helpers   4. Header / nav + mode switch
-   5. Buttons   6. Hero + doors   7. Route   8. Sections   9. Menus
+   1. Tokens   2. Base   3. Layout helpers   4. Header / nav (hamburger)
+   5. Buttons   6. Split hero   7. Route   8. Sections   9. Menus
    10. Forms   11. Footer   12. Motion preferences
    ========================================================================== */
 
@@ -138,6 +138,7 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 /* 4. Header / nav --------------------------------------------------------- */
+/* One navbar. Below 64em the links collapse behind a hamburger. */
 .site-header {
   position: sticky;
   top: 0;
@@ -149,11 +150,9 @@ img { display: block; max-width: 100%; height: auto; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0 1rem;
+  gap: 1rem;
   min-height: 4.25rem;
 }
-.site-header .brand { padding-block: 0.9rem; }
 
 .brand {
   display: inline-flex;
@@ -168,57 +167,66 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .brand svg { width: 2.4rem; height: auto; flex: none; }
 
-/* Events / Delivered switch. Sits in the header on every page.
-   Mobile: full-width second row. Desktop: inline next to the logo. */
-.mode {
-  display: flex;
-  order: 3;
-  flex-basis: 100%;
-  margin-bottom: 0.75rem;
-  padding: 3px;
-  border: 1.5px solid rgb(250 251 248 / 0.45);
-  border-radius: 99px;
-}
-.mode a {
-  flex: 1;
-  text-align: center;
-  white-space: nowrap;
-  padding: 0.5rem 1.2rem;
-  border-radius: 99px;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-}
-.mode a:hover { background: rgb(250 251 248 / 0.12); }
-.mode a[aria-current="page"] { background: var(--yellow); color: var(--ink); }
-@media (min-width: 64em) {
-  .mode { order: 0; flex-basis: auto; margin: 0 auto 0 clamp(1rem, 3vw, 2.5rem); }
-}
-
+/* Hamburger: three bars that fold into an X when the nav is open. */
 .nav-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+  position: relative;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-right: -0.5rem;
+  padding: 0;
   background: none;
-  border: 1.5px solid currentColor;
+  border: 0;
   border-radius: var(--radius);
   color: inherit;
-  font: 600 1rem var(--font-display);
-  padding: 0.5rem 0.8rem;
   cursor: pointer;
 }
+.nav-toggle span {
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  top: 50%;
+  height: 2.5px;
+  margin-top: -1.25px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 0.3s cubic-bezier(0.6, 0, 0.2, 1), opacity 0.2s;
+}
+.nav-toggle span:nth-child(1) { transform: translateY(-0.5rem); }
+.nav-toggle span:nth-child(3) { transform: translateY(0.5rem); }
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg); }
 
-.site-nav { display: none; }
-.site-nav.is-open {
-  display: block;
+/* Mobile panel. Animates height via grid rows (0fr -> 1fr), so it works for
+   any number of links; visibility keeps closed links out of the tab order. */
+.site-nav {
   position: absolute;
   inset: 100% 0 auto 0;
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
   background: var(--spruce);
-  border-top: 1px solid rgb(250 251 248 / 0.2);
-  padding: 0.5rem var(--gutter) 1.5rem;
+  box-shadow: 0 1.5rem 2rem -1rem rgb(20 33 31 / 0.35);
+  transition: grid-template-rows 0.35s cubic-bezier(0.6, 0, 0.2, 1), visibility 0s 0.35s;
 }
-.site-nav ul { display: flex; flex-direction: column; }
+.site-nav.is-open {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition-delay: 0s;
+}
+.site-nav ul {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  padding-inline: var(--gutter);
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  transition: opacity 0.25s, transform 0.35s cubic-bezier(0.6, 0, 0.2, 1);
+}
+.site-nav.is-open ul { opacity: 1; transform: none; }
+.site-nav li:first-child { border-top: 1px solid rgb(250 251 248 / 0.2); padding-top: 0.5rem; }
+.site-nav li:last-child { padding-bottom: 1.5rem; }
 .site-nav a {
   display: block;
   padding: 0.85rem 0;
@@ -227,31 +235,41 @@ img { display: block; max-width: 100%; height: auto; }
   font-size: 1.15rem;
   text-decoration: none;
 }
-.site-nav a[aria-current="page"] {
-  text-decoration: underline;
-  text-decoration-color: var(--yellow);
-  text-decoration-thickness: 3px;
-}
+.site-nav a:not(.btn) { text-underline-offset: 0.35em; text-decoration-thickness: 3px; text-decoration-color: transparent; text-decoration-line: underline; transition: text-decoration-color 0.15s; }
+.site-nav a:not(.btn):hover { text-decoration-color: rgb(250 251 248 / 0.5); }
+.site-nav a[aria-current="page"],
+.site-nav a[aria-current="page"]:hover { text-decoration-color: var(--yellow); }
 .site-nav .btn { display: inline-block; margin-top: 0.75rem; padding: 0.8rem 1.3rem; }
 
-/* No JS? Show the nav inline instead of hiding it behind a dead button. */
+/* No JS? Show the links inline instead of hiding them behind a dead button. */
 html:not(.js) .nav-toggle { display: none; }
 html:not(.js) .site-header__inner { flex-wrap: wrap; padding-block: 0.75rem; }
-html:not(.js) .site-nav { display: block; width: 100%; }
+html:not(.js) .site-nav { position: static; width: 100%; grid-template-rows: 1fr; visibility: visible; box-shadow: none; }
+html:not(.js) .site-nav ul { opacity: 1; transform: none; padding-inline: 0; }
 
-/* 64em, not 48em: the header has to fit the switch plus three links and a button. */
 @media (min-width: 64em) {
   .nav-toggle { display: none; }
   .site-nav,
-  .site-nav.is-open,
   html:not(.js) .site-nav {
-    display: block;
     position: static;
+    display: block;
     width: auto;
-    padding: 0;
-    border: 0;
+    visibility: visible;
+    box-shadow: none;
+    transition: none;
   }
-  .site-nav ul { flex-direction: row; align-items: center; gap: clamp(1rem, 2.5vw, 2.25rem); }
+  .site-nav ul {
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(1rem, 2.2vw, 2rem);
+    overflow: visible;
+    padding: 0;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .site-nav li:first-child { border: 0; padding-top: 0; }
+  .site-nav li:last-child { padding-bottom: 0; }
   .site-nav a { font-size: 1rem; padding: 0.5rem 0; }
   .site-nav .btn { margin-top: 0; padding: 0.65rem 1.1rem; }
 }
@@ -284,30 +302,76 @@ html:not(.js) .site-nav { display: block; width: 100%; }
 }
 
 /* 6. Hero ----------------------------------------------------------------- */
-.hero {
-  background: var(--spruce);
-  color: var(--paper);
-  padding-block: clamp(2.5rem, 1rem + 6vw, 6rem) 0;
+/* Home hero: two photo panels, each a link. Side by side from 48em, stacked
+   below. The yellow line between them is the container showing through the gap. */
+.hero-split {
+  display: grid;
+  gap: 4px;
+  background: var(--yellow);
 }
-/* flow-root keeps the doors' negative margin inside the hero, so the hero
-   band ends partway down the cards instead of the margin collapsing out. */
-.hero > .wrap { display: flow-root; }
-.hero h1 { max-width: 14ch; }
-.hero .lede { margin-bottom: 1.75rem; }
+.hero-split__panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  /* Two stacked panels fit one phone screen under the header. */
+  min-height: clamp(15rem, calc(50svh - 2.25rem), 24rem);
+  padding: clamp(1.25rem, 4vw, 3rem) var(--gutter);
+  background: var(--spruce);          /* shows if the photo is missing */
+  color: var(--paper);
+  text-decoration: none;
+}
+.hero-split__panel img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.2, 0, 0.2, 1);
+}
+.hero-split__panel::before {           /* green overlay so the text stays readable on any photo */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgb(14 58 54 / 0.92), rgb(14 58 54 / 0.45) 55%, rgb(14 58 54 / 0.2));
+  transition: opacity 0.3s;
+}
+.hero-split__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: clamp(3.25rem, 2rem + 6.5vw, 7.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+.hero-split__text { margin: 0.5rem 0 1.25rem; max-width: 30ch; font-size: var(--step-0); line-height: 1.4; }
+.hero-split__panel:hover img,
+.hero-split__panel:focus-visible img { transform: scale(1.05); }
+.hero-split__panel:hover::before,
+.hero-split__panel:focus-visible::before { opacity: 0.8; }
+.hero-split__panel:hover .btn,
+.hero-split__panel:focus-visible .btn { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+.hero-split__panel:focus-visible { outline-offset: -8px; }
 
-/* The two doors: Events and Delivered. They hang over the bottom edge of the hero. */
+@media (min-width: 48em) {
+  .hero-split { grid-template-columns: 1fr 1fr; }
+  .hero-split__panel { min-height: clamp(24rem, calc(100svh - 12rem), 46rem); }
+}
+
+.intro h1 { font-size: clamp(2rem, 1.3rem + 2.8vw, 3.6rem); margin: 0; }
+
+/* Paired panels (bus.html "Two ways to ride"). */
 .doors {
   display: grid;
   gap: clamp(1rem, 2.5vw, 2rem);
-  margin-top: clamp(2.5rem, 6vw, 4rem);
-  margin-bottom: calc(var(--section) * -1);
-  position: relative;
 }
 @media (min-width: 50em) { .doors { grid-template-columns: 1fr 1fr; } }
-.hero + .section { padding-top: calc(var(--section) * 2); }
 
-/* Same panels used mid-page (bus.html): no overlap, no photo. */
-.doors--flat { margin: 0; }
 .doors--flat h3 { display: flex; align-items: center; gap: 0.6rem; }
 
 .door {
@@ -352,6 +416,64 @@ html:not(.js) .site-nav { display: block; width: 100%; }
 }
 .page-head h1 { max-width: 16ch; }
 .mode-delivered .page-head { background: var(--yellow); color: var(--ink); }
+
+/* Torn-photo header (inner pages). A photo on the right with a ripped left
+   edge; below 56em it stacks under the heading with the rip along the top.
+   Two layers make the tear: a paper-colored sheet (figure::before) and the
+   photo clipped slightly further in, which leaves an uneven white rim.
+   The polygons were generated once; swap the photo, not the points. */
+.page-head--photo {
+  --tear-left-paper: polygon(2.94% 0.0%, 1.57% 3.4%, 1.00% 5.9%, 2.14% 7.5%, 3.18% 10.2%, 3.59% 12.4%, 3.26% 15.5%, 4.41% 17.1%, 3.18% 19.0%, 2.16% 22.9%, 1.75% 26.2%, 1.00% 27.9%, 1.00% 31.4%, 1.00% 34.6%, 1.64% 38.4%, 1.72% 41.5%, 1.04% 45.2%, 1.00% 47.0%, 3.00% 48.9%, 3.24% 52.6%, 3.86% 55.0%, 3.72% 58.2%, 3.64% 62.4%, 4.28% 64.1%, 5.31% 68.5%, 7.50% 71.1%, 7.50% 73.0%, 6.00% 74.9%, 4.66% 78.9%, 5.88% 82.0%, 5.18% 86.0%, 6.00% 88.5%, 4.96% 90.5%, 4.92% 92.6%, 3.33% 94.9%, 3.54% 97.4%, 3.54% 100%, 100% 100%, 100% 0);
+  --tear-left-photo: polygon(4.75% 0.0%, 2.99% 3.4%, 2.55% 5.9%, 3.60% 7.5%, 5.39% 10.2%, 5.41% 12.4%, 5.36% 15.5%, 6.62% 17.1%, 4.30% 19.0%, 3.76% 22.9%, 3.96% 26.2%, 3.04% 27.9%, 1.92% 31.4%, 1.89% 34.6%, 3.05% 38.4%, 2.54% 41.5%, 2.13% 45.2%, 1.82% 47.0%, 4.77% 48.9%, 5.19% 52.6%, 6.00% 55.0%, 4.67% 58.2%, 5.49% 62.4%, 6.04% 64.1%, 6.24% 68.5%, 9.61% 71.1%, 9.75% 73.0%, 7.05% 74.9%, 6.88% 78.9%, 7.22% 82.0%, 6.66% 86.0%, 8.28% 88.5%, 6.99% 90.5%, 5.88% 92.6%, 4.72% 94.9%, 5.06% 97.4%, 4.78% 100%, 100% 100%, 100% 0);
+  --tear-top-paper: polygon(0.0% 7.10%, 2.9% 4.24%, 6.1% 6.64%, 8.4% 9.90%, 9.8% 7.12%, 11.4% 8.10%, 13.1% 5.56%, 14.4% 7.96%, 16.0% 6.36%, 18.2% 3.96%, 21.9% 3.74%, 23.4% 2.00%, 25.3% 4.10%, 26.6% 7.00%, 28.2% 10.86%, 31.9% 12.00%, 33.8% 11.14%, 37.0% 11.36%, 39.0% 9.58%, 42.8% 11.84%, 46.1% 12.00%, 48.6% 13.16%, 50.5% 11.62%, 54.2% 11.28%, 57.9% 12.00%, 59.7% 10.26%, 61.5% 11.04%, 64.8% 10.92%, 68.1% 8.26%, 71.6% 10.06%, 74.0% 8.00%, 76.1% 9.94%, 78.4% 9.30%, 81.4% 7.18%, 83.0% 9.78%, 84.7% 11.86%, 87.6% 10.92%, 89.1% 7.80%, 92.0% 7.98%, 94.3% 10.36%, 96.1% 8.76%, 98.0% 9.32%, 100% 9.32%, 100% 100%, 0 100%);
+  --tear-top-photo: polygon(0.0% 12.24%, 2.9% 7.00%, 6.1% 8.91%, 8.4% 13.60%, 9.8% 9.78%, 11.4% 10.29%, 13.1% 7.94%, 14.4% 9.94%, 16.0% 8.89%, 18.2% 6.88%, 21.9% 6.64%, 23.4% 6.53%, 25.3% 6.94%, 26.6% 10.60%, 28.2% 13.30%, 31.9% 15.05%, 33.8% 13.01%, 37.0% 14.06%, 39.0% 11.44%, 42.8% 16.28%, 46.1% 15.78%, 48.6% 15.64%, 50.5% 15.13%, 54.2% 16.44%, 57.9% 14.18%, 59.7% 15.01%, 61.5% 14.40%, 64.8% 14.50%, 68.1% 13.06%, 71.6% 13.28%, 74.0% 11.62%, 76.1% 14.22%, 78.4% 14.64%, 81.4% 10.21%, 83.0% 14.58%, 84.7% 16.20%, 87.6% 15.01%, 89.1% 11.06%, 92.0% 11.03%, 94.3% 12.36%, 96.1% 11.03%, 98.0% 11.37%, 100% 13.79%, 100% 100%, 0 100%);
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+.page-head__photo {
+  position: relative;
+  height: clamp(11rem, 42vw, 17rem);
+  margin: clamp(2rem, 6vw, 3rem) 0 0;
+  filter: drop-shadow(0 -0.25rem 0.6rem rgb(20 33 31 / 0.3));
+}
+.page-head__photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--paper);
+  clip-path: var(--tear-top-paper);
+}
+.page-head__photo img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: var(--tear-top-photo);
+}
+
+@media (min-width: 56em) {
+  .page-head--photo {
+    display: flex;
+    align-items: center;
+    min-height: clamp(19rem, 30vw, 26rem);
+    padding-bottom: clamp(2.5rem, 1rem + 5vw, 5rem);
+  }
+  /* Keep the text clear of the photo, which is anchored to the viewport edge. */
+  .page-head--photo h1 { max-width: min(16ch, 50vw - var(--gutter)); }
+  .page-head--photo .lede { max-width: min(34ch, 48vw - var(--gutter)); }
+  .page-head__photo {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 44%;
+    height: auto;
+    margin: 0;
+    filter: drop-shadow(-0.4rem 0 0.8rem rgb(20 33 31 / 0.3));
+  }
+  .page-head__photo::before { clip-path: var(--tear-left-paper); }
+  .page-head__photo img { clip-path: var(--tear-left-photo); }
+}
+
 .page-head p:last-child { margin-bottom: 0; }
 
 /* 7. Route — the bus line with four stops --------------------------------- */
@@ -661,4 +783,11 @@ html:not(.js) .tabs { display: none; }          /* without JS, every menu just s
   html { scroll-behavior: auto; }
   .route::before { animation: none; }
   .btn { transition: none; }
+  .nav-toggle span,
+  .site-nav,
+  .site-nav ul,
+  .hero-split__panel img,
+  .hero-split__panel::before { transition: none; }
+  .hero-split__panel:hover img,
+  .hero-split__panel:focus-visible img { transform: none; }
 }

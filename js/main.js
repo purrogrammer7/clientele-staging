@@ -7,7 +7,7 @@
   // Lets the CSS know scripting is available (see `html:not(.js)` rules).
   document.documentElement.classList.add("js");
 
-  /* ---- Mobile navigation ------------------------------------------------ */
+  /* ---- Mobile navigation (hamburger) ------------------------------------ */
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("site-nav");
 
@@ -15,26 +15,36 @@
     var setOpen = function (open) {
       nav.classList.toggle("is-open", open);
       toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
     };
 
     toggle.addEventListener("click", function () {
       setOpen(toggle.getAttribute("aria-expanded") !== "true");
     });
 
+    // Close on Escape, or on a click/tap anywhere outside the header.
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && nav.classList.contains("is-open")) {
         setOpen(false);
         toggle.focus();
       }
     });
+    // (Capture phase + preventDefault: the dismissing tap shouldn't also
+    // follow whatever link happens to be underneath it.)
+    document.addEventListener("click", function (e) {
+      if (nav.classList.contains("is-open") && !e.target.closest(".site-header")) {
+        e.preventDefault();
+        setOpen(false);
+      }
+    }, true);
 
-    // Reset when the viewport grows past the mobile breakpoint (56em in CSS).
-    window.matchMedia("(min-width: 56em)").addEventListener("change", function (e) {
+    // Reset when the viewport grows past the mobile breakpoint (64em in CSS).
+    window.matchMedia("(min-width: 64em)").addEventListener("change", function (e) {
       if (e.matches) setOpen(false);
     });
   }
 
-  /* ---- Menu tabs (menus.html) ------------------------------------------- */
+  /* ---- Menu tabs (events.html, delivered.html) ------------------------------------------- */
   var tablist = document.querySelector('[role="tablist"]');
 
   if (tablist) {
@@ -77,8 +87,8 @@
     var date = form.querySelector('input[type="date"]');
     if (date) date.min = new Date().toISOString().slice(0, 10);
 
-    // Preselect Events or Delivered from the link that brought the visitor
-    // here: contact.html?type=event or contact.html?type=delivered
+    // Preselect an option from the link that brought the visitor here:
+    // contact.html?type=event, ?type=delivered or ?type=bus
     var type = new URLSearchParams(window.location.search).get("type");
     var radio = type && form.querySelector('input[name="type"][value="' + type.replace(/[^a-z]/g, "") + '"]');
     if (radio) radio.checked = true;

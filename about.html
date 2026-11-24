@@ -35,16 +35,14 @@
         Bicoastal Bus
       </a>
 
-      <!-- The two sides of the catering business. Always visible, on every page. -->
-      <nav class="mode" aria-label="Catering type">
-        <a href="events.html">Events</a>
-        <a href="delivered.html">Delivered</a>
-      </nav>
-
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
 
       <nav class="site-nav" id="site-nav" aria-label="Main">
         <ul>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="delivered.html">Delivered</a></li>
           <li><a href="bus.html">Get on the Bus!</a></li>
           <li><a href="about.html" aria-current="page">About</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -56,11 +54,16 @@
 
   <main id="main">
 
-    <div class="page-head">
+    <div class="page-head page-head--photo">
       <div class="wrap">
         <h1>Two coasts, four kitchens, one team</h1>
         <p class="lede">We're chefs who trained in New York, Paris, Italy and the Pacific Northwest, and chose Seattle as home.</p>
       </div>
+      <!-- Torn-edge photo. Replace images/head-about.jpg (the chefs).
+           Decorative, so alt is empty; add alt text if the photo carries meaning. -->
+      <figure class="page-head__photo">
+        <img src="images/head-about.jpg" alt="" width="1200" height="900">
+      </figure>
     </div>
 
     <!-- STORY — placeholder copy: replace with the founders' own words -->
