@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get on the bus! | Bicoastal Bus</title>
+  <meta name="description" content="Dinner aboard a converted school bus in Seattle. We bring the bus to you, or you and your guests meet us at one of our preferred locations.">
+  <meta name="theme-color" content="#0e3a36">
+
+  <!-- Favicons: .ico for older browsers, .svg for modern ones, PNG for iOS home screen -->
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body class="mode-bus">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- HEADER (repeated on every page) -->
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="index.html">
+        <!-- Placeholder mark: two stops, one line. Swap for the real logo. -->
+        <svg viewBox="0 0 48 16" aria-hidden="true">
+          <line x1="8" y1="8" x2="40" y2="8" stroke="#f4b81a" stroke-width="4"/>
+          <circle cx="8" cy="8" r="6" fill="#0e3a36" stroke="#fafbf8" stroke-width="3"/>
+          <circle cx="40" cy="8" r="6" fill="#f4b81a" stroke="#fafbf8" stroke-width="3"/>
+        </svg>
+        Bicoastal Bus
+      </a>
+
+      <!-- The three ways to eat with us. Always visible, on every page. -->
+      <nav class="mode" aria-label="Catering type">
+        <a href="events.html">Events</a>
+        <a href="delivered.html">Delivered</a>
+        <a href="bus.html" aria-current="page">Get on the bus</a>
+      </nav>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a class="btn" href="contact.html?type=bus">Book the bus</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <div class="page-head page-head--bus">
+      <div class="wrap">
+        <h1>Get on the bus!</h1>
+        <p class="lede">Dinner for a small group, served aboard an old school bus we rebuilt as a dining room.</p>
+        <a class="btn" href="contact.html?type=bus">Book the bus</a>
+
+        <!-- The bus body: four window-shaped photo slots.
+             Swap each <span> for an <img> (square crops work best). -->
+        <div class="bus-windows">
+          <figure class="photo"><span>Photo</span></figure>
+          <figure class="photo"><span>Photo</span></figure>
+          <figure class="photo"><span>Photo</span></figure>
+          <figure class="photo"><span>Photo</span></figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT IT IS — placeholder copy: confirm details with the client -->
+    <section class="section">
+      <div class="wrap split">
+        <h2>A dining room that used to do the school run</h2>
+        <div>
+          <p>The seats came out and a long table went in. What's left is a warm, close room where everyone can hear each other and watch the plates come together a few feet away.</p>
+          <p>It suits the dinners that deserve more than a restaurant booking: a milestone birthday, an anniversary, a proposal, or a team you want to thank properly.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TWO WAYS TO RIDE -->
+    <section class="section section--fog" aria-labelledby="ways-heading">
+      <div class="wrap">
+        <h2 id="ways-heading" style="margin-bottom: 2rem;">Two ways to ride</h2>
+        <div class="doors doors--flat">
+          <article class="door">
+            <div class="door__body">
+              <h3><span class="stop" aria-hidden="true"></span>We come to you</h3>
+              <p>We park at your home, office or venue and dinner happens right outside your door. All we need is a level place to park and a little notice.</p>
+              <a class="text-link" href="#bus-details">What we need on site</a>
+            </div>
+          </article>
+          <article class="door">
+            <div class="door__body">
+              <h3><span class="stop stop--filled" aria-hidden="true"></span>You come to us</h3>
+              <p>Meet the bus at one of our preferred locations around Seattle. We pick the spot for the view and the setting; you just bring your guests.</p>
+              <a class="text-link" href="#bus-locations">See preferred locations</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- A SAMPLE EVENING — PLACEHOLDER dishes: replace with the real bus menu -->
+    <section class="section" aria-labelledby="evening-heading">
+      <div class="wrap">
+        <h2 id="evening-heading">A sample evening</h2>
+        <p style="margin-bottom: 2rem;">Four courses, one from each stop on our route. The menu changes with the season.</p>
+        <ul class="dishes">
+            <li>
+              <h3>Smoked salmon on rye <small>New York</small></h3>
+              <p>Wild salmon, caraway rye crisp, cultured cream, dill.</p>
+            </li>
+            <li>
+              <h3>Hand-cut tagliatelle <small>Italy</small></h3>
+              <p>Foraged mushrooms, brown butter, thyme. <em>Vegetarian.</em></p>
+            </li>
+            <li>
+              <h3>Roasted king salmon <small>Pacific Northwest</small></h3>
+              <p>Beurre blanc, leeks, fingerling potatoes. <em>Gluten-free.</em></p>
+            </li>
+            <li>
+              <h3>Fruit tart <small>Paris</small></h3>
+              <p>Pâte sucrée, vanilla pastry cream, whatever fruit is best that week.</p>
+            </li>
+        </ul>
+        <p class="menu-note">Tell us about allergies and dietary needs when you book and we'll plan the menu around them.</p>
+      </div>
+    </section>
+
+    <!-- PREFERRED LOCATIONS — TODO: real places from the client -->
+    <section class="section section--fog" id="bus-locations" aria-labelledby="locations-heading">
+      <div class="wrap">
+        <h2 id="locations-heading">Preferred locations</h2>
+        <ul class="events">
+          <li>
+            <h3>[Location name]</h3>
+            <p>[Neighborhood]. One line on what makes it a good place for dinner on the bus.</p>
+          </li>
+          <li>
+            <h3>[Location name]</h3>
+            <p>[Neighborhood]. One line on what makes it a good place for dinner on the bus.</p>
+          </li>
+          <li>
+            <h3>[Location name]</h3>
+            <p>[Neighborhood]. One line on what makes it a good place for dinner on the bus.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DETAILS — TODO: confirm every value with the client -->
+    <section class="section" id="bus-details" aria-labelledby="details-heading">
+      <div class="wrap split">
+        <h2 id="details-heading">Good to know</h2>
+        <dl class="facts">
+          <div><dt>Seats</dt><dd>[How many guests the bus seats]</dd></div>
+          <div><dt>If we come to you</dt><dd>[Parking space needed, surface, power or water access, travel area]</dd></div>
+          <div><dt>Length of dinner</dt><dd>[Typical running time and seating times]</dd></div>
+          <div><dt>Drinks</dt><dd>[Wine pairings, BYO policy, non-alcoholic options]</dd></div>
+          <div><dt>Accessibility</dt><dd>[Steps, entry width, what accommodations are possible]</dd></div>
+          <div><dt>Weather</dt><dd>[Heating, seasons of operation, what happens in bad weather]</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section section--bus cta-band">
+      <div class="wrap">
+        <h2>Pick a date and a place to park</h2>
+        <p class="lede">Tell us when, where and how many. We'll reply within two business days.</p>
+        <a class="btn" href="contact.html?type=bus">Book the bus</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (repeated on every page) -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__inner">
+        <div>
+          <a class="brand" href="index.html">Bicoastal Bus</a>
+          <p>Event catering, delivered catering and dinner on the bus, in Seattle and around Puget Sound.</p>
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="events.html">Event catering</a></li>
+            <li><a href="delivered.html">Delivered catering</a></li>
+            <li><a href="bus.html">Get on the bus</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Get in touch</h2>
+          <ul>
+            <!-- TODO: real email and phone -->
+            <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+            <li><a href="tel:+12065550100">(206) 555-0100</a></li>
+            <li><a href="https://www.instagram.com/bicoastalbus25/" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="site-footer__legal">&copy; <span data-year>2026</span> Bicoastal Bus. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -4,8 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Get in touch | Bicoastal Bus</title>
-  <meta name="description" content="Plan an event or order delivered catering from Bicoastal Bus. Share the date, headcount and what you'd like to eat.">
+  <meta name="description" content="Plan an event, order delivered catering or book dinner on the bus with Bicoastal Bus. Share the date, headcount and what you'd like to eat.">
   <meta name="theme-color" content="#0e3a36">
+
+  <!-- Favicons: .ico for older browsers, .svg for modern ones, PNG for iOS home screen -->
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <script>document.documentElement.classList.add("js");</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,10 +35,11 @@
         Bicoastal Bus
       </a>
 
-      <!-- The two sides of the business. Always visible, on every page. -->
+      <!-- The three ways to eat with us. Always visible, on every page. -->
       <nav class="mode" aria-label="Catering type">
         <a href="events.html">Events</a>
         <a href="delivered.html">Delivered</a>
+        <a href="bus.html">Get on the bus</a>
       </nav>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -53,7 +59,7 @@
     <div class="page-head">
       <div class="wrap">
         <h1>Get in touch</h1>
-        <p class="lede">Planning an event or ordering delivery, start here. We'll reply within two business days.</p>
+        <p class="lede">Planning an event, ordering delivery or booking the bus, start here. We'll reply within two business days.</p>
       </div>
     </div>
 
@@ -76,8 +82,8 @@
         </div>
 
         <!-- Inquiry form.
-             Links elsewhere on the site use contact.html?type=event or
-             ?type=delivered; js/main.js preselects the matching option.
+             Links elsewhere on the site use contact.html?type=event,
+             ?type=delivered or ?type=bus; js/main.js preselects the matching option.
              TODO: point `action` at a form backend (Formspree, Netlify Forms,
              Basin, your own endpoint…). Until then js/main.js blocks submit
              and shows a notice. -->
@@ -87,6 +93,7 @@
             <div class="choice__options">
               <label><input type="radio" name="type" value="event" required checked> Event catering</label>
               <label><input type="radio" name="type" value="delivered"> Delivered catering</label>
+              <label><input type="radio" name="type" value="bus"> Dinner on the bus</label>
             </div>
           </fieldset>
 
@@ -107,18 +114,18 @@
             <input id="guests" name="guests" type="number" min="1" inputmode="numeric">
           </div>
           <div class="field">
-            <label for="date">Event or delivery date</label>
+            <label for="date">Date</label>
             <input id="date" name="date" type="date">
             <p class="hint">Leave blank if you're still deciding.</p>
           </div>
           <div class="field">
-            <label for="location">Venue or delivery address</label>
+            <label for="location">Venue or address</label>
             <input id="location" name="location" type="text" autocomplete="street-address">
           </div>
           <div class="field field--full">
             <label for="message">Tell us more</label>
             <textarea id="message" name="message" required></textarea>
-            <p class="hint">For events: the occasion and style of service. For delivery: what you'd like from the menu. Dietary needs either way.</p>
+            <p class="hint">For events: the occasion and style of service. For delivery: what you'd like from the menu. For the bus: whether we're coming to you or you're coming to us. Dietary needs in every case.</p>
           </div>
 
           <!-- Honeypot for bots; most form backends support a field like this -->
@@ -145,13 +152,14 @@
       <div class="site-footer__inner">
         <div>
           <a class="brand" href="index.html">Bicoastal Bus</a>
-          <p>Event and delivered catering in Seattle and around Puget Sound.</p>
+          <p>Event catering, delivered catering and dinner on the bus, in Seattle and around Puget Sound.</p>
         </div>
         <div>
           <h2>Explore</h2>
           <ul>
             <li><a href="events.html">Event catering</a></li>
             <li><a href="delivered.html">Delivered catering</a></li>
+            <li><a href="bus.html">Get on the bus</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
