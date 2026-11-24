@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get in touch | Bicoastal Bus</title>
+  <meta name="description" content="Plan an event or order delivered catering from Bicoastal Bus. Share the date, headcount and what you'd like to eat.">
+  <meta name="theme-color" content="#0e3a36">
+
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- HEADER (repeated on every page) -->
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="index.html">
+        <!-- Placeholder mark: two stops, one line. Swap for the real logo. -->
+        <svg viewBox="0 0 48 16" aria-hidden="true">
+          <line x1="8" y1="8" x2="40" y2="8" stroke="#f4b81a" stroke-width="4"/>
+          <circle cx="8" cy="8" r="6" fill="#0e3a36" stroke="#fafbf8" stroke-width="3"/>
+          <circle cx="40" cy="8" r="6" fill="#f4b81a" stroke="#fafbf8" stroke-width="3"/>
+        </svg>
+        Bicoastal Bus
+      </a>
+
+      <!-- The two sides of the business. Always visible, on every page. -->
+      <nav class="mode" aria-label="Catering type">
+        <a href="events.html">Events</a>
+        <a href="delivered.html">Delivered</a>
+      </nav>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+          <li><a class="btn" href="contact.html">Get a quote</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <div class="page-head">
+      <div class="wrap">
+        <h1>Get in touch</h1>
+        <p class="lede">Planning an event or ordering delivery, start here. We'll reply within two business days.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="wrap split">
+
+        <!-- Contact details — TODO: replace placeholders -->
+        <div>
+          <h2>Reach us directly</h2>
+          <dl class="contact-details">
+            <dt>Email</dt>
+            <dd><a href="mailto:hello@example.com">hello@example.com</a></dd>
+            <dt>Phone</dt>
+            <dd><a href="tel:+12065550100">(206) 555-0100</a></dd>
+            <dt>Instagram</dt>
+            <dd><a href="https://www.instagram.com/bicoastalbus25/" rel="noopener">@bicoastalbus25</a></dd>
+            <dt>Service area</dt>
+            <dd>Seattle and around Puget Sound</dd>
+          </dl>
+        </div>
+
+        <!-- Inquiry form.
+             Links elsewhere on the site use contact.html?type=event or
+             ?type=delivered; js/main.js preselects the matching option.
+             TODO: point `action` at a form backend (Formspree, Netlify Forms,
+             Basin, your own endpoint…). Until then js/main.js blocks submit
+             and shows a notice. -->
+        <form class="form" action="#" method="post" data-inquiry-form>
+          <fieldset class="choice field--full">
+            <legend>What do you need?</legend>
+            <div class="choice__options">
+              <label><input type="radio" name="type" value="event" required checked> Event catering</label>
+              <label><input type="radio" name="type" value="delivered"> Delivered catering</label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="guests">Number of people</label>
+            <input id="guests" name="guests" type="number" min="1" inputmode="numeric">
+          </div>
+          <div class="field">
+            <label for="date">Event or delivery date</label>
+            <input id="date" name="date" type="date">
+            <p class="hint">Leave blank if you're still deciding.</p>
+          </div>
+          <div class="field">
+            <label for="location">Venue or delivery address</label>
+            <input id="location" name="location" type="text" autocomplete="street-address">
+          </div>
+          <div class="field field--full">
+            <label for="message">Tell us more</label>
+            <textarea id="message" name="message" required></textarea>
+            <p class="hint">For events: the occasion and style of service. For delivery: what you'd like from the menu. Dietary needs either way.</p>
+          </div>
+
+          <!-- Honeypot for bots; most form backends support a field like this -->
+          <div class="visually-hidden" aria-hidden="true">
+            <label for="company">Leave this field empty</label>
+            <input id="company" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <p class="form-status" role="status" aria-live="polite"></p>
+
+          <div class="field--full">
+            <button class="btn" type="submit">Send inquiry</button>
+          </div>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (repeated on every page) -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__inner">
+        <div>
+          <a class="brand" href="index.html">Bicoastal Bus</a>
+          <p>Event and delivered catering in Seattle and around Puget Sound.</p>
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="events.html">Event catering</a></li>
+            <li><a href="delivered.html">Delivered catering</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Get in touch</h2>
+          <ul>
+            <!-- TODO: real email and phone -->
+            <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+            <li><a href="tel:+12065550100">(206) 555-0100</a></li>
+            <li><a href="https://www.instagram.com/bicoastalbus25/" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="site-footer__legal">&copy; <span data-year>2026</span> Bicoastal Bus. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | Bicoastal Bus</title>
+  <meta name="description" content="Meet the chefs behind Bicoastal Bus, trained in New York, Paris, Italy and the Pacific Northwest and now catering in Seattle.">
+  <meta name="theme-color" content="#0e3a36">
+
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- HEADER (repeated on every page) -->
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="index.html">
+        <!-- Placeholder mark: two stops, one line. Swap for the real logo. -->
+        <svg viewBox="0 0 48 16" aria-hidden="true">
+          <line x1="8" y1="8" x2="40" y2="8" stroke="#f4b81a" stroke-width="4"/>
+          <circle cx="8" cy="8" r="6" fill="#0e3a36" stroke="#fafbf8" stroke-width="3"/>
+          <circle cx="40" cy="8" r="6" fill="#f4b81a" stroke="#fafbf8" stroke-width="3"/>
+        </svg>
+        Bicoastal Bus
+      </a>
+
+      <!-- The two sides of the business. Always visible, on every page. -->
+      <nav class="mode" aria-label="Catering type">
+        <a href="events.html">Events</a>
+        <a href="delivered.html">Delivered</a>
+      </nav>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a class="btn" href="contact.html">Get a quote</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <div class="page-head">
+      <div class="wrap">
+        <h1>Two coasts, four kitchens, one team</h1>
+        <p class="lede">We're chefs who trained in New York, Paris, Italy and the Pacific Northwest, and chose Seattle as home.</p>
+      </div>
+    </div>
+
+    <!-- STORY — placeholder copy: replace with the founders' own words -->
+    <section class="section">
+      <div class="wrap split split--even">
+        <div>
+          <h2>Our story</h2>
+          <p>[Placeholder] How the team met, why they left restaurant kitchens for catering, and where the name comes from. Two or three short paragraphs in the chefs' own voice will do more here than anything polished.</p>
+          <p>[Placeholder] What they care about: sourcing, hospitality, the kind of events they love to cook for.</p>
+        </div>
+        <figure class="photo photo--wide"><span>Photo: the team in the kitchen</span></figure>
+      </div>
+    </section>
+
+    <section class="section section--fog" aria-labelledby="route-heading">
+      <div class="wrap">
+        <h2 id="route-heading">Where we learned to cook</h2>
+        <p style="margin-bottom: 3rem;">Each stop left something on the menu.</p>
+
+        <ol class="route">
+          <li class="route__stop">
+            <h3>New York</h3>
+            <p>Pace, precision and a love of big flavors in small bites.</p>
+          </li>
+          <li class="route__stop">
+            <h3>Paris</h3>
+            <p>Classic technique: sauces, pastry and the patience both require.</p>
+          </li>
+          <li class="route__stop">
+            <h3>Italy</h3>
+            <p>Handmade pasta and the discipline of letting a few good ingredients speak.</p>
+          </li>
+          <li class="route__stop">
+            <h3>Pacific Northwest</h3>
+            <p>Home. Salmon, shellfish, mushrooms and produce from farms we know by name.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TEAM — add or remove <li> items; the grid adapts -->
+    <section class="section" aria-labelledby="team-heading">
+      <div class="wrap">
+        <h2 id="team-heading">The chefs</h2>
+        <ul class="team">
+          <li>
+            <figure class="photo"><span>Photo: chef portrait</span></figure>
+            <h3>[Chef name]</h3>
+            <p>[Role]. One or two sentences on where they trained and what they cook best.</p>
+          </li>
+          <li>
+            <figure class="photo"><span>Photo: chef portrait</span></figure>
+            <h3>[Chef name]</h3>
+            <p>[Role]. One or two sentences on where they trained and what they cook best.</p>
+          </li>
+          <li>
+            <figure class="photo"><span>Photo: chef portrait</span></figure>
+            <h3>[Chef name]</h3>
+            <p>[Role]. One or two sentences on where they trained and what they cook best.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--dark cta-band">
+      <div class="wrap">
+        <h2>Let's cook for you</h2>
+        <p class="lede">Tell us what you need and we'll reply within two business days.</p>
+        <p style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 0;">
+          <a class="btn" href="contact.html?type=event">Plan your event</a>
+          <a class="btn" href="contact.html?type=delivered">Order delivery</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (repeated on every page) -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__inner">
+        <div>
+          <a class="brand" href="index.html">Bicoastal Bus</a>
+          <p>Event and delivered catering in Seattle and around Puget Sound.</p>
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="events.html">Event catering</a></li>
+            <li><a href="delivered.html">Delivered catering</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Get in touch</h2>
+          <ul>
+            <!-- TODO: real email and phone -->
+            <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+            <li><a href="tel:+12065550100">(206) 555-0100</a></li>
+            <li><a href="https://www.instagram.com/bicoastalbus25/" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="site-footer__legal">&copy; <span data-year>2026</span> Bicoastal Bus. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Event catering | Bicoastal Bus</title>
+  <meta name="description" content="Full-service event catering in Seattle: weddings, company events, private dinners and celebrations, with a menu written for your occasion.">
+  <meta name="theme-color" content="#0e3a36">
+
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body class="mode-events">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- HEADER (repeated on every page) -->
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="index.html">
+        <!-- Placeholder mark: two stops, one line. Swap for the real logo. -->
+        <svg viewBox="0 0 48 16" aria-hidden="true">
+          <line x1="8" y1="8" x2="40" y2="8" stroke="#f4b81a" stroke-width="4"/>
+          <circle cx="8" cy="8" r="6" fill="#0e3a36" stroke="#fafbf8" stroke-width="3"/>
+          <circle cx="40" cy="8" r="6" fill="#f4b81a" stroke="#fafbf8" stroke-width="3"/>
+        </svg>
+        Bicoastal Bus
+      </a>
+
+      <!-- The two sides of the business. Always visible, on every page. -->
+      <nav class="mode" aria-label="Catering type">
+        <a href="events.html" aria-current="page">Events</a>
+        <a href="delivered.html">Delivered</a>
+      </nav>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a class="btn" href="contact.html?type=event">Plan your event</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <div class="page-head">
+      <div class="wrap">
+        <h1>Event catering</h1>
+        <p class="lede">We write the menu, cook on site and serve your guests, so you can be one of them.</p>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="types-heading">
+      <div class="wrap">
+        <h2 id="types-heading">Events we cater</h2>
+        <ul class="events">
+          <li>
+            <h3>Weddings</h3>
+            <p>Rehearsal dinners, receptions and next-day brunch, with a tasting before you commit to a menu.</p>
+          </li>
+          <li>
+            <h3>Company events</h3>
+            <p>Client dinners, launches, offsites and holiday parties, fully staffed.</p>
+          </li>
+          <li>
+            <h3>Private dinners</h3>
+            <p>A coursed meal cooked in your kitchen for birthdays, anniversaries or no reason at all.</p>
+          </li>
+          <li>
+            <h3>Celebrations</h3>
+            <p>Showers, graduations, memorials and family gatherings of any size.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--fog">
+      <div class="wrap split split--even">
+        <figure class="photo photo--wide"><span>Photo: table set for an event</span></figure>
+        <div>
+          <h2>Every menu is written for the event</h2>
+          <p>Tell us the date, the headcount and what you love to eat. We'll send back a menu and a quote, then adjust until it's right. Dietary needs are part of the plan from the start.</p>
+          <a class="btn" href="contact.html?type=event">Plan your event</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAMPLE MENUS. Tabs are enhanced by js/main.js; without JS all four show.
+         ALL DISHES ARE PLACEHOLDERS: replace with the client's real menu. -->
+    <section class="section" aria-labelledby="menus-heading">
+      <div class="wrap">
+        <h2 id="menus-heading">Sample menus</h2>
+        <p style="margin-bottom: 2rem;">A starting point, not a fixed list.</p>
+
+        <div class="tabs" role="tablist" aria-label="Event menu type">
+          <button type="button" role="tab" id="tab-bites" aria-controls="bites" aria-selected="true">Passed bites</button>
+          <button type="button" role="tab" id="tab-dinner" aria-controls="dinner" aria-selected="false">Dinner</button>
+          <button type="button" role="tab" id="tab-brunch" aria-controls="brunch" aria-selected="false">Brunch</button>
+          <button type="button" role="tab" id="tab-dessert" aria-controls="dessert" aria-selected="false">Dessert</button>
+        </div>
+
+        <div class="menu-panel" id="bites" role="tabpanel" aria-labelledby="tab-bites" tabindex="0">
+          <h2>Passed bites</h2>
+          <ul class="dishes">
+            <li>
+              <h3>Smoked salmon on rye <small>New York</small></h3>
+              <p>Wild salmon, caraway rye crisp, cultured cream, dill.</p>
+            </li>
+            <li>
+              <h3>Gougères <small>Paris</small></h3>
+              <p>Warm cheese puffs with aged Washington cheddar. <em>Vegetarian.</em></p>
+            </li>
+            <li>
+              <h3>Arancini <small>Italy</small></h3>
+              <p>Saffron risotto, mozzarella, tomato conserva. <em>Vegetarian.</em></p>
+            </li>
+            <li>
+              <h3>Oysters on the half shell <small>Pacific Northwest</small></h3>
+              <p>Hood Canal oysters, apple mignonette. <em>Gluten-free.</em></p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu-panel" id="dinner" role="tabpanel" aria-labelledby="tab-dinner" tabindex="0" hidden>
+          <h2>Dinner</h2>
+          <ul class="dishes">
+            <li>
+              <h3>Chicory salad <small>Italy</small></h3>
+              <p>Bitter greens, hazelnut, pear, pecorino. <em>Vegetarian, gluten-free.</em></p>
+            </li>
+            <li>
+              <h3>Hand-cut tagliatelle <small>Italy</small></h3>
+              <p>Foraged mushrooms, brown butter, thyme. <em>Vegetarian.</em></p>
+            </li>
+            <li>
+              <h3>Roasted king salmon <small>Pacific Northwest</small></h3>
+              <p>Beurre blanc, leeks, fingerling potatoes. <em>Gluten-free.</em></p>
+            </li>
+            <li>
+              <h3>Braised short rib <small>Paris</small></h3>
+              <p>Red wine jus, celery root purée, glazed carrots. <em>Gluten-free.</em></p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu-panel" id="brunch" role="tabpanel" aria-labelledby="tab-brunch" tabindex="0" hidden>
+          <h2>Brunch</h2>
+          <ul class="dishes">
+            <li>
+              <h3>Bagel board <small>New York</small></h3>
+              <p>Hand-rolled bagels, house lox, scallion schmear, pickles.</p>
+            </li>
+            <li>
+              <h3>Quiche <small>Paris</small></h3>
+              <p>Leek and gruyère in an all-butter crust. <em>Vegetarian.</em></p>
+            </li>
+            <li>
+              <h3>Frittata <small>Italy</small></h3>
+              <p>Farm eggs, spring onion, ricotta, herbs. <em>Vegetarian, gluten-free.</em></p>
+            </li>
+            <li>
+              <h3>Dungeness crab toast <small>Pacific Northwest</small></h3>
+              <p>Sourdough, lemon aioli, chive.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu-panel" id="dessert" role="tabpanel" aria-labelledby="tab-dessert" tabindex="0" hidden>
+          <h2>Dessert</h2>
+          <ul class="dishes">
+            <li>
+              <h3>Cheesecake <small>New York</small></h3>
+              <p>Tall and plain, the way it should be, with seasonal berry compote.</p>
+            </li>
+            <li>
+              <h3>Fruit tart <small>Paris</small></h3>
+              <p>Pâte sucrée, vanilla pastry cream, whatever fruit is best that week.</p>
+            </li>
+            <li>
+              <h3>Tiramisu <small>Italy</small></h3>
+              <p>Espresso from a Seattle roaster, mascarpone, cocoa.</p>
+            </li>
+            <li>
+              <h3>Apple galette <small>Pacific Northwest</small></h3>
+              <p>Washington apples, rye crust, salted caramel.</p>
+            </li>
+          </ul>
+        </div>
+
+        <p class="menu-note">Just need food dropped off? <a class="text-link" href="delivered.html">See delivered catering</a></p>
+      </div>
+    </section>
+
+    <section class="section section--dark cta-band">
+      <div class="wrap">
+        <h2>Have a date in mind?</h2>
+        <p class="lede">Send us the details and we'll reply within two business days.</p>
+        <a class="btn" href="contact.html?type=event">Plan your event</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (repeated on every page) -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__inner">
+        <div>
+          <a class="brand" href="index.html">Bicoastal Bus</a>
+          <p>Event and delivered catering in Seattle and around Puget Sound.</p>
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="events.html">Event catering</a></li>
+            <li><a href="delivered.html">Delivered catering</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Get in touch</h2>
+          <ul>
+            <!-- TODO: real email and phone -->
+            <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+            <li><a href="tel:+12065550100">(206) 555-0100</a></li>
+            <li><a href="https://www.instagram.com/bicoastalbus25/" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="site-footer__legal">&copy; <span data-year>2026</span> Bicoastal Bus. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Delivered catering | Bicoastal Bus</title>
+  <meta name="description" content="Delivered catering in Seattle: lunch boxes, platters, breakfast and sweets dropped off ready to serve.">
+  <meta name="theme-color" content="#0e3a36">
+
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body class="mode-delivered">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- HEADER (repeated on every page) -->
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="index.html">
+        <!-- Placeholder mark: two stops, one line. Swap for the real logo. -->
+        <svg viewBox="0 0 48 16" aria-hidden="true">
+          <line x1="8" y1="8" x2="40" y2="8" stroke="#f4b81a" stroke-width="4"/>
+          <circle cx="8" cy="8" r="6" fill="#0e3a36" stroke="#fafbf8" stroke-width="3"/>
+          <circle cx="40" cy="8" r="6" fill="#f4b81a" stroke="#fafbf8" stroke-width="3"/>
+        </svg>
+        Bicoastal Bus
+      </a>
+
+      <!-- The two sides of the business. Always visible, on every page. -->
+      <nav class="mode" aria-label="Catering type">
+        <a href="events.html">Events</a>
+        <a href="delivered.html" aria-current="page">Delivered</a>
+      </nav>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a class="btn" href="contact.html?type=delivered">Order delivery</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <div class="page-head">
+      <div class="wrap">
+        <h1>Delivered catering</h1>
+        <p class="lede">Lunch boxes, platters, breakfast and sweets, dropped off ready to serve.</p>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="how-heading">
+      <div class="wrap">
+        <h2 id="how-heading" style="margin-bottom: 2rem;">How delivery works</h2>
+        <ol class="steps">
+          <li>
+            <h3>Choose your menu</h3>
+            <p>Pick from the menu below, or tell us the headcount and budget and we'll suggest a spread.</p>
+          </li>
+          <li>
+            <h3>Send your order</h3>
+            <p>Give us the date, time, address and any dietary needs. We'll confirm with a total.</p>
+          </li>
+          <li>
+            <h3>We drop it off</h3>
+            <p>Your order arrives labelled and ready to serve, with everything you need to set it out.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- DELIVERED MENU. ALL ITEMS ARE PLACEHOLDERS: replace with the real menu.
+         If the client adopts an online ordering platform later, point the
+         "Order delivery" buttons at it instead of contact.html. -->
+    <section class="section section--fog" aria-labelledby="menu-heading">
+      <div class="wrap">
+        <h2 id="menu-heading" style="margin-bottom: 2rem;">The delivered menu</h2>
+
+        <div class="tabs" role="tablist" aria-label="Delivered menu type">
+          <button type="button" role="tab" id="tab-lunch" aria-controls="lunch" aria-selected="true">Lunch boxes</button>
+          <button type="button" role="tab" id="tab-platters" aria-controls="platters" aria-selected="false">Platters</button>
+          <button type="button" role="tab" id="tab-breakfast" aria-controls="breakfast" aria-selected="false">Breakfast</button>
+          <button type="button" role="tab" id="tab-sweets" aria-controls="sweets" aria-selected="false">Sweets</button>
+        </div>
+
+        <div class="menu-panel" id="lunch" role="tabpanel" aria-labelledby="tab-lunch" tabindex="0">
+          <h2>Lunch boxes</h2>
+          <ul class="dishes">
+            <li>
+              <h3>Pastrami on rye <small>New York</small></h3>
+              <p>House pastrami, mustard, pickle, kettle chips.</p>
+            </li>
+            <li>
+              <h3>Jambon-beurre <small>Paris</small></h3>
+              <p>Baguette, ham, cultured butter, cornichons, green salad.</p>
+            </li>
+            <li>
+              <h3>Caprese focaccia <small>Italy</small></h3>
+              <p>Tomato, mozzarella, basil, olive oil. <em>Vegetarian.</em></p>
+            </li>
+            <li>
+              <h3>Smoked salmon grain bowl <small>Pacific Northwest</small></h3>
+              <p>Farro, greens, pickled onion, dill yogurt.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu-panel" id="platters" role="tabpanel" aria-labelledby="tab-platters" tabindex="0" hidden>
+          <h2>Platters</h2>
+          <ul class="dishes">
+            <li>
+              <h3>Deli board <small>New York</small></h3>
+              <p>Cured and smoked meats, pickles, mustard, rye.</p>
+            </li>
+            <li>
+              <h3>Cheese and charcuterie <small>Paris</small></h3>
+              <p>Three cheeses, two cured meats, fruit, baguette.</p>
+            </li>
+            <li>
+              <h3>Antipasti <small>Italy</small></h3>
+              <p>Marinated vegetables, olives, mozzarella, focaccia. <em>Vegetarian.</em></p>
+            </li>
+            <li>
+              <h3>Seasonal crudités <small>Pacific Northwest</small></h3>
+              <p>Farm vegetables, herb dip, hazelnut romesco. <em>Vegan, gluten-free.</em></p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu-panel" id="breakfast" role="tabpanel" aria-labelledby="tab-breakfast" tabindex="0" hidden>
+          <h2>Breakfast</h2>
+          <ul class="dishes">
+            <li>
+              <h3>Bagels and schmear <small>New York</small></h3>
+              <p>Hand-rolled bagels by the dozen, two spreads.</p>
+            </li>
+            <li>
+              <h3>Pastry box <small>Paris</small></h3>
+              <p>Croissants, pain au chocolat, seasonal danish.</p>
+            </li>
+            <li>
+              <h3>Frittata squares <small>Italy</small></h3>
+              <p>Farm eggs, spring onion, ricotta. <em>Vegetarian, gluten-free.</em></p>
+            </li>
+            <li>
+              <h3>Yogurt and granola <small>Pacific Northwest</small></h3>
+              <p>Local yogurt, house granola, berry compote. <em>Vegetarian.</em></p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu-panel" id="sweets" role="tabpanel" aria-labelledby="tab-sweets" tabindex="0" hidden>
+          <h2>Sweets</h2>
+          <ul class="dishes">
+            <li>
+              <h3>Black and white cookies <small>New York</small></h3>
+              <p>By the dozen.</p>
+            </li>
+            <li>
+              <h3>Madeleines <small>Paris</small></h3>
+              <p>Brown butter and lemon, by the dozen.</p>
+            </li>
+            <li>
+              <h3>Biscotti <small>Italy</small></h3>
+              <p>Hazelnut and anise, by the dozen.</p>
+            </li>
+            <li>
+              <h3>Apple hand pies <small>Pacific Northwest</small></h3>
+              <p>Washington apples, rye crust.</p>
+            </li>
+          </ul>
+        </div>
+
+        <p class="menu-note">Vegetarian, vegan and gluten-free options are available across the menu. Tell us what you need when you order.</p>
+      </div>
+    </section>
+
+    <!-- ORDERING DETAILS — TODO: confirm every value with the client -->
+    <section class="section" aria-labelledby="details-heading">
+      <div class="wrap split">
+        <h2 id="details-heading">Good to know</h2>
+        <dl class="facts">
+          <div><dt>Minimum order</dt><dd>[Minimum order amount or headcount]</dd></div>
+          <div><dt>Lead time</dt><dd>[How far ahead orders need to be placed]</dd></div>
+          <div><dt>Delivery area</dt><dd>[Neighborhoods or radius covered, and any delivery fee]</dd></div>
+          <div><dt>Delivery hours</dt><dd>[Days and time windows]</dd></div>
+          <div><dt>What's included</dt><dd>[Serving utensils, plates, napkins, labels]</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section section--dark cta-band">
+      <div class="wrap">
+        <h2>Feeding a crowd this week?</h2>
+        <p class="lede">Send us your order and we'll confirm within two business days. Planning something bigger? <a href="events.html">See event catering</a>.</p>
+        <a class="btn" href="contact.html?type=delivered">Order delivery</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (repeated on every page) -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__inner">
+        <div>
+          <a class="brand" href="index.html">Bicoastal Bus</a>
+          <p>Event and delivered catering in Seattle and around Puget Sound.</p>
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="events.html">Event catering</a></li>
+            <li><a href="delivered.html">Delivered catering</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Get in touch</h2>
+          <ul>
+            <!-- TODO: real email and phone -->
+            <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+            <li><a href="tel:+12065550100">(206) 555-0100</a></li>
+            <li><a href="https://www.instagram.com/bicoastalbus25/" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="site-footer__legal">&copy; <span data-year>2026</span> Bicoastal Bus. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
