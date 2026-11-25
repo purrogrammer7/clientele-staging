@@ -35,22 +35,17 @@
         Bicoastal Bus
       </a>
 
-      <!-- The two sides of the catering business. Always visible, on every page. -->
-      <!-- <nav class="mode" aria-label="Catering type">
-        <a href="events.html">Events</a>
-        <a href="delivered.html">Delivered</a>
-      </nav> -->
-
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
 
       <nav class="site-nav" id="site-nav" aria-label="Main">
         <ul>
-      
+          <li><a href="events.html">Events</a></li>
+          <li><a href="delivered.html">Delivered</a></li>
+          <li><a href="bus.html">Get on the Bus!</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="events.html">Events</a></li>    
-          <li><a href="delivered.html">Delivered</a></li> 
-          <li><a href="bus.html">Get on the Bus!</a></li>
           <li><a class="btn" href="contact.html">Get a quote</a></li>
         </ul>
       </nav>
@@ -59,50 +54,32 @@
 
   <main id="main">
 
-    <!-- HERO: headline, then the two doors -->
-    <section class="hero">
-      <div class="wrap">
-        <h1>Trained in New York, Paris and Italy. Cooking in Seattle.</h1>
-        <p class="lede">Three ways to eat with us: we cater your event, deliver to your door, or seat you for dinner on our bus.</p>
+    <!-- HERO: two photo panels, each linking to one side of the business.
+         Replace images/hero-events.jpg and images/hero-delivered.jpg with real
+         photos (landscape, at least 1600px wide; keep the subject centered,
+         since the crop changes with the viewport). -->
+    <div class="hero-split">
+      <a class="hero-split__panel" href="events.html">
+        <img src="images/plated.jpeg" alt="" width="1600" height="1200" fetchpriority="high">
+        <span class="hero-split__title">Events</span>
+        <span class="hero-split__text">From intimate dinners to large-scale gala events.</span>
+         <span class="btn">Explore event catering</span>
+      </a>
+      <a class="hero-split__panel" href="delivered.html">
+        <img src="images/platter-char.JPEG" alt="charcuterie platter" >
+        <span class="hero-split__title">Delivered</span>
+        <span class="hero-split__text">Lunch boxes, platters and sweets, dropped off ready to serve.</span>
+        <span class="btn">Explore delivered catering</span>
+      </a>
+    </div>
 
-        <div class="doors">
-          <article class="door">
-            <figure class="photo"><span>Photo: plated dinner at an event</span></figure>
-            <div class="door__body">
-              <h2><span class="stop" aria-hidden="true"></span>Events</h2>
-              <p>Full-service catering with a menu written for your occasion, cooked and served by our team.</p>
-              <ul>
-                <li>Weddings and rehearsal dinners</li>
-                <li>Company parties and client dinners</li>
-                <li>Private dinners at home</li>
-              </ul>
-              <a class="btn" href="events.html">Explore event catering</a>
-            </div>
-          </article>
-
-          <article class="door">
-            <figure class="photo"><span>Photo: lunch boxes and platters</span></figure>
-            <div class="door__body">
-              <h2><span class="stop stop--filled" aria-hidden="true"></span>Delivered</h2>
-              <p>The same kitchen, packed and dropped off ready to serve. No staff, no setup.</p>
-              <ul>
-                <li>Office lunches and meetings</li>
-                <li>Platters for gatherings at home</li>
-                <li>Breakfast and sweets by the dozen</li>
-              </ul>
-              <a class="btn" href="delivered.html">Explore delivered catering</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- BRAND STATEMENT -->
-    <section class="section">
+    <!-- INTRO: page headline + brand statement -->
+    <section class="section intro">
       <div class="wrap split">
-        <h2>Four kitchens taught us how to cook. Seattle is where we put it together.</h2>
+        <h1>Trained in New York, Paris and Italy. Cooking in Seattle.</h1>
         <div>
-          <p>We're a small team of chefs who learned the trade on two coasts and two continents. Whether we're plating dinner for two hundred or boxing lunch for twelve, it comes out of the same kitchen and gets the same care.</p>
+          <p>We're a small team of chefs who learned the trade on two coasts and two continents. Whether we're plating dinner for two hundred or boxing lunch for twelve, your experience will be top-notch.</p>
+          <p>There's a third way to eat with us, too: dinner aboard our converted school bus.</p>
           <p><a class="text-link" href="about.html">Meet the chefs</a></p>
         </div>
       </div>
@@ -113,7 +90,7 @@
       <div class="wrap split split--even">
         <div>
           <h2>Get on the bus!</h2>
-          <p>We turned an old school bus into a small dining room on wheels. Book it for dinner with your guests: we'll drive it to you, or you can meet us at one of our favorite spots.</p>
+          <p>We converted an old school bus into a one-of-a-kind dining room. Book the bus: we'll drive it to you, or you can meet us at one of our favorite spots!</p>
           <a class="btn" href="bus.html">See the bus</a>
         </div>
         <figure class="photo photo--wide"><span>Photo: the bus, exterior</span></figure>
@@ -154,7 +131,7 @@
         <div class="quotes">
           <blockquote>
             <p>[Client quote about an event goes here.]</p>
-            <footer>[Name], [wedding / company / occasion]</footer>
+            <footer>[Name], [ company / occasion]</footer>
           </blockquote>
           <blockquote>
             <p>[Client quote about a delivered order goes here.]</p>
@@ -183,7 +160,7 @@
     <!-- CLOSING CTA: both paths again -->
     <section class="section section--dark cta-band">
       <div class="wrap">
-        <h2>Ready when you are</h2>
+        <h2>Holla at us!</h2>
         <p class="lede">Tell us what you need and we'll reply within two business days.</p>
         <p style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 0;">
           <a class="btn" href="contact.html?type=event">Plan your event</a>
@@ -201,7 +178,7 @@
       <div class="site-footer__inner">
         <div>
           <a class="brand" href="index.html">Bicoastal Bus</a>
-          <p>Event catering, delivered catering and dinner on the bus, in Seattle and around Puget Sound.</p>
+          <p>Event catering, delivered catering, and intimate dinners on the Bicoastal Bus. Seattle and around Puget Sound.</p>
         </div>
         <div>
           <h2>Explore</h2>

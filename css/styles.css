@@ -10,7 +10,7 @@
 :root {
   --spruce: #0e3a36;   /* primary dark: header, hero, footer */
   --ink: #14211f;      /* body text */
-  --paper: #fafbf8;    /* page background */
+  --paper: #f7ffd6;    /* page background */
   --fog: #e9eee9;      /* alternate section background */
   --glass: #9dbdb3;    /* photo placeholders, quiet accents */
   --yellow: #f4b81a;   /* the bus: route line, buttons, focus */
